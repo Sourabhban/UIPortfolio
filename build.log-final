@@ -1,0 +1,19 @@
+yarn run v1.22.22
+$ next build
+   Γû▓ Next.js 15.5.14
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully in 17.9s
+   Skipping linting
+   Checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/4) ...
+TypeError: a[d] is not a function
+    at Object.c [as require] (D:\Work\Projects\mba portfolio\.next\server\webpack-runtime.js:1:127)
+Error occurred prerendering page "/". Read more: https://nextjs.org/docs/messages/prerender-error
+TypeError: a[d] is not a function
+    at Object.c [as require] (D:\Work\Projects\mba portfolio\.next\server\webpack-runtime.js:1:127)
+Export encountered an error on /page: /, exiting the build.
+ Γ¿» Next.js build worker exited with code: 1 and signal: null
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

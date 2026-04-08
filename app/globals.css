@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
+  --font-display: var(--font-display), var(--font-outfit), sans-serif;
+  --color-neo-green: #29FF7E;
+  --color-neo-pink: #FF2E97;
+  --color-neo-blue: #2E5BFF;
+  --color-neo-yellow: #FFF133;
+  --color-neo-orange: #FF8A00;
+  --color-neo-red: #FF3B30;
+
+  /* Custom Breakpoint System */
+  --breakpoint-ultra-sm: 240px;
+  --breakpoint-sm-phone: 360px;
+  --breakpoint-std-phone: 390px;
+  --breakpoint-lg-phone: 414px;
+  --breakpoint-xl-phone: 480px;
+  --breakpoint-phablet: 600px;
+  --breakpoint-tablet-p: 768px;
+  --breakpoint-tablet-l: 1024px;
+  --breakpoint-laptop: 1200px;
+  --breakpoint-desktop: 1440px;
+  --breakpoint-ultrawide: 1920px;
+  --breakpoint-4k: 2560px;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-[#F1F1F1] text-black overflow-x-hidden;
+  }
+}
+
+@utility brutal-border {
+  @apply border-[3px] border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)];
+}
+
+@utility brutal-border-large {
+  @apply border-[6px] border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)];
+}
+
+@utility brutal-btn {
+  @apply brutal-border px-8 py-4 bg-white font-display font-black uppercase tracking-tighter transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] active:translate-x-0 active:translate-y-0 active:shadow-none cursor-pointer;
+}
+
+@utility brutal-card {
+  @apply brutal-border bg-white p-6 transition-all;
+}
+
+@utility neo-card-hover {
+  @apply hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all;
+}
+
+@utility brutal-divider {
+  @apply h-[4px] bg-black w-full my-12;
+}
+
+@utility neo-shadow {
+  @apply shadow-[4px_4px_0px_0px_rgba(0,0,0,1)];
+}
+
+@utility neo-shadow-lg {
+  @apply shadow-[8px_8px_0px_0px_rgba(0,0,0,1)];
+}
+
+@utility neo-shadow-xl {
+  @apply shadow-[12px_12px_0px_0px_rgba(0,0,0,1)];
+}
+
+@utility text-outline {
+  -webkit-text-stroke: 2px black;
+  color: transparent;
+}
+
+@utility text-outline-white {
+  -webkit-text-stroke: 2px white;
+  color: transparent;
+}
+
+@utility bg-grid {
+  background-image: radial-gradient(circle, #000 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+@utility bg-grid-dark {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+/* Noise texture overlay */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Glitch effect */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-3px, 3px); }
+  40% { transform: translate(-3px, -3px); }
+  60% { transform: translate(3px, 3px); }
+  80% { transform: translate(3px, -3px); }
+  100% { transform: translate(0); }
+}
+
+.glitch-hover:hover {
+  animation: glitch 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  text-shadow: 3px 0 var(--color-neo-pink), -3px 0 var(--color-neo-blue);
+}
+
+/* Scroll progress */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--color-neo-green);
+  z-index: 1000;
+  transform-origin: 0%;
+  border-bottom: 3px solid black;
+}
+
+.brutal-badge {
+  @apply fixed z-40 px-4 py-2 bg-black text-white font-display font-black uppercase text-xs rotate-90 origin-right right-0 top-1/2 border-[3px] border-white;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+  border-left: 3px solid black;
+}
+
+::-webkit-scrollbar-thumb {
+  background: black;
+  border: 2px solid white;
+}
+
+.dot-pattern {
+  background-image: radial-gradient(black 1px, transparent 1px);
+  background-size: 20px 20px;
+}
